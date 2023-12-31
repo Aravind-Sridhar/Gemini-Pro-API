@@ -24,17 +24,17 @@ model = ga.GenerativeModel('gemini-pro-vision')
 
 # Define a function to get a response from the Gemini Pro Vision generator
 def get_gemini_pro_vision_text_extractor(input, image, prompt):
-
     response = model.generate_content([input, image[0], prompt])
-
     return response.text
 
+# Define a function to process the input image for further use
 def process_input_image(uploaded_file):
     # Check if a file has been uploaded
     if uploaded_file is not None:
         # Read the file into bytes
         bytes_data = uploaded_file.getvalue()
 
+        # Create a list with image information including MIME type and data
         image_parts = [
             {
                 "mime_type": uploaded_file.type,  # Get the mime type of the uploaded file
@@ -44,8 +44,6 @@ def process_input_image(uploaded_file):
         return image_parts
     else:
         raise FileNotFoundError("No file uploaded")
-
-
 
 # Set the page configuration for Streamlit with a specific title
 st.set_page_config(
@@ -75,14 +73,19 @@ if uploaded_file is not None:
 # Create a button labeled "Tell me about the image"
 submit = st.button("Tell me about the provided invoice")
 
+# Define an input prompt for the generative model
 input_prompt = """
                You are an expert in understanding invoices.
                You will receive input images as invoices &
                you will have to answer questions based on the input image
                """
 
+# Check if the submit button is clicked
 if submit:
+    # Process the uploaded image and get the generative model response
     image_data = process_input_image(uploaded_file)
     response = get_gemini_pro_vision_text_extractor(input_prompt, image_data, inp)
+
+    # Display the response as a subheader and text
     st.subheader("Gemini Pro says: ")
     st.write(response)

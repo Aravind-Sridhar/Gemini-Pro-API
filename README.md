@@ -82,3 +82,26 @@ This demo allows users to provide an input prompt and upload an image to generat
 
 5. Interact with the Gemini Pro Vision generator by entering an input prompt, uploading an image, and clicking the "Tell me about the image" button.
 
+
+### 3.Gemini Pro Text Extractor
+
+Gemini Pro Text Extractor is a Streamlit web application that utilizes the Google Generative AI model (Gemini Pro Vision) to extract text from images, particularly focusing on invoices.
+
+1. Run the Streamlit app:
+
+```bash
+streamlit run text_extractor.py
+```
+
+
+## Usage
+
+1. Open the Streamlit app in your web browser.
+
+2. Input your prompt in the "Input Prompt" text field.
+
+3. Upload an image by clicking the "Choose an image..." button.
+
+4. Click the "Tell me about the provided invoice" button.
+
+5. The app will use the Gemini Pro Vision model to generate text based on the input prompt and the uploaded image.
