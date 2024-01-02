@@ -10,7 +10,7 @@ This repository contains multiple demos showcasing the capabilities of the Gemin
 
 - Python >= 3.9
 - [Streamlit](https://streamlit.io/)
-- [Google GenerativeAI](https://cloud.google.com/ai-platform/generative-ai)
+- [Google GenerativeAI](https://ai.google.dev/)
 
 ### Installation
 
